@@ -1,0 +1,20 @@
+
+# whatever info i am writing here, it actually creates a docker image.
+# That docker image can be taken and can be run within a container.
+# That container will interact with kernel of our operating system (not like Virtual Machine)
+# helps: run a app in linux machine which was developed in a windows machine
+FROM python:3.7 
+# this line takes base image (say linux base image) from docker hub 
+COPY . /app
+# copy the contents from current location/repository to location/folder called "app" created in base image
+WORKDIR /app
+# that "app" in base image will be our working directory now
+RUN pip install -r project_requirements.txt
+# install all dependencies
+EXPOSE $PORT
+# $ is a place holder. When the docker image is run as a container, inorder to access the application inside conatiner, we have expose some port within the container.
+# that means, after deployment into a cloud server, the server automatically assigns port in that container
+CMD gunicorn --workers=4 --bind 0.0.0.0:$PORT app:app
+# run the application
+# gunicorn helps to run app in heroku cloud
+# 0.0.0.0 is local IP address.
