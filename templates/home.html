@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>ML API</title>
+  <title>cal_house_predict API</title>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
@@ -71,11 +71,11 @@
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-       <label>Median Income (MedInc)</label>
-        <input type="text" name = "MedInc" placeholder="float [1:20]" required="required" /><br>
+       <label>Median Income</label>
+        <input type="text" name = "MedInc" placeholder="floating value" required="required" /><br>
 
         <label>House Age</label>
-        <input type="text" name = "HouseAge" placeholder="positive integer [1:100]" required="required" /><br>
+        <input type="text" name = "HouseAge" placeholder="positive integer" required="required" /><br>
 
         <label>Average Rooms</label>
         <input type="text" name = "AveRooms" placeholder="positive integer" required="required" /><br>
@@ -87,13 +87,16 @@
         <input type="text" name = "Population" placeholder="positive integer" required="required" /><br>
         
         <label>Average Occupancy</label>
-        <input type="text" name = "AveOccup" placeholder=" float " required="required" /><br>
+        <input type="text" name = "AveOccup" placeholder="floating value" required="required" /><br>
         
         <label>Latitude</label>
-        <input type="text" name = "Latitude" placeholder="float [30:45]" required="required" /><br>
+        <input type="text" name = "Latitude" placeholder="e.g., 34.05" required="required" /><br>
+        <small class="help-text">Valid California range is approx. 32.5 to 42.0</small>
         
         <label>Longitude</label>
-        <input type="text" name = "Longitude" placeholder="float [-125:-100]" required="required" /><br>
+        <input type="text" name = "Longitude" placeholder="e.g:, -118.24" required="required" /><br>
+        <small class="help-text">Valid California range is approx. -124.4 to -114.1</small>
+
 
       
 
